@@ -1,6 +1,6 @@
 # LogiDrivePy - Logitech Controller Python Module
 
-A Python module for interfacing with a Logitech Steering Wheel. This module was tested on a Logitech G920 Driving Force Racing Wheel.
+A Python module for interfacing with a Logitech steering wheel. This module was tested on a Logitech G920 Driving Force Racing Wheel.
 
 ## Introduction
 

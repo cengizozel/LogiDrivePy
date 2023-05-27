@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='logidrivepy',
-    version='0.1.1',
-    description='A Python library for interfacing with Logitech Steering Wheel.',
+    version='0.1.2',
+    description='A Python library for interfacing with a Logitech steering wheel.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/cengizozel/logidrivepy',
@@ -22,8 +22,5 @@ setup(
     ],
     keywords='logitech, g920, driving, wheel, controller',
     install_requires=[
-        'tkinter',
-        'ctypes',
-        'pathlib',
     ],
 )
