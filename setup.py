@@ -22,5 +22,8 @@ setup(
     ],
     keywords='logitech, g920, driving, wheel, controller',
     install_requires=[
+        'tkinter',
+        'ctypes',
+        'pathlib',
     ],
 )

@@ -1,17 +1,11 @@
-import tkinter as tk
-
-# import sys
-# sys.path.append('../logidrivepy')
+import sys
+sys.path.append('../logidrivepy')
 from logidrivepy import LogitechController
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.withdraw()
-    root.update()
 
-    dll_path = "logidrivepy/dll/LogitechSteeringWheelEnginesWrapper.dll"
-    controller = LogitechController(dll_path)
-    
+def run_test():
+    controller = LogitechController()
+
     steering_initialize = controller.steering_initialize()
     logi_update = controller.logi_update()
     is_connected = controller.is_connected(0)
@@ -27,4 +21,7 @@ if __name__ == "__main__":
         print(f"Did not pass all tests.\n")
 
     controller.steering_shutdown()
-    root.destroy()
+
+
+if __name__ == "__main__":
+    run_test()

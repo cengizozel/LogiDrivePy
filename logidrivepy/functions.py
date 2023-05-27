@@ -1,11 +1,16 @@
 import ctypes
-import time
 import tkinter as tk
 
 class LogitechControllerFunctions:
-    def __init__(self, dll_path, structs):
+    def __init__(self, dll_path, structs, use_gui=True):
         self.structs = structs
         self.logi_dll = ctypes.cdll.LoadLibrary(dll_path)
+
+        # If use_gui flag is True, then create a hidden Tkinter window
+        if use_gui:
+            self.root = tk.Tk()
+            self.root.withdraw()
+            self.root.update()
 
         # Function Definitions
         # LogiSteeringInitialize
@@ -364,4 +369,7 @@ class LogitechControllerFunctions:
         return self.LogiPlayLeds(index, currentRPM, rpmFirstLedTurnsOn, rpmRedLine)
 
     def steering_shutdown(self):
+        # Destroy the GUI window if it exists
+        if hasattr(self, 'root'):
+            self.root.destroy()
         return self.LogiSteeringShutdown()
