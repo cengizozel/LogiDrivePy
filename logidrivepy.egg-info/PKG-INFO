@@ -1,3 +1,22 @@
+Metadata-Version: 2.1
+Name: logidrivepy
+Version: 0.1.1
+Summary: A Python library for interfacing with Logitech Steering Wheel.
+Home-page: https://github.com/cengizozel/logidrivepy
+Author: Cengiz Ozel
+Author-email: cozel@cs.rochester.edu
+License: MIT
+Keywords: logitech,g920,driving,wheel,controller
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
 # LogiDrivePy - Logitech Controller Python Module
 
 A Python module for interfacing with a Logitech Steering Wheel. This module was tested on a Logitech G920 Driving Force Racing Wheel.
@@ -66,3 +85,5 @@ This library also requires `Tkinter`, a Python binding to the Tk GUI toolkit. Tk
 ### License
 
 This project is licensed under the terms of the MIT license. For more details, see the `LICENSE.txt` file.
+
+
