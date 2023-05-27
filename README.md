@@ -8,33 +8,33 @@ This module is an implementation of the Logitech Steering Wheel Engine's interfa
 
 ## Installation
 
-To install the package, clone the repository and use the `setup.py` file: 
-
+To install the package, simply use pip:
 ```
-git clone https://github.com/cengizozel/LogiDrivePy.git
-cd LogiDrivePy
-python setup.py install
+pip install logidrivepy
 ```
 
-Your project structure should look like this:
-
+The package directory layout is organized as follows:
 ```
 LogiDrivePy
-│   .gitignore
-│   LICENSE.txt
-│   README.md
-│   setup.py
-│
-├───logidrivepy
-│   │   logitech_controller.py
-│   │   __init__.py
-│   │
-│   ├───dll
-│   │       LogitechSteeringWheelEnginesWrapper.dll
-│
-└───tests
-        test.py
-        __init__.py
+|   .gitignore
+|   LICENSE.txt
+|   README.md
+|   setup.py
+|
++---logidrivepy
+|   |   constants.py
+|   |   controller.py
+|   |   functions.py
+|   |   structs.py
+|   |   __init__.py
+|   |
+|   +---dll
+|   |       LogitechSteeringWheelEnginesWrapper.dll
+|
++---tests
+    |   run_controller_test.py
+    |   spin_wheel_test.py
+    |   __init__.py
 ```
 
 ## Usage
@@ -42,20 +42,33 @@ LogiDrivePy
 Here's a simple example on how to use the Logitech Controller module in your Python script.
 
 ```python
+import tkinter as tk
 from logidrivepy import LogitechController
 
 def main():
+    root = tk.Tk()
+    root.withdraw()
+    root.update()
+
     dll_path = "logidrivepy/dll/LogitechSteeringWheelEnginesWrapper.dll"
     controller = LogitechController(dll_path)
+    
+    steering_initialize = controller.steering_initialize()
+    logi_update = controller.logi_update()
+    is_connected = controller.is_connected(0)
 
-    # Test initialization
-    controller.initialize()
+    print(f"\n---Logitech Controller Test---")
+    print(f"steering_initialize: {steering_initialize}")
+    print(f"logi_update: {logi_update}")
+    print(f"is_connected: {is_connected}")
 
-    # Give the controller some time to initialize
-    time.sleep(1)
+    if steering_initialize and logi_update and is_connected:
+        print(f"All tests passed.\n")
+    else:
+        print(f"Did not pass all tests.\n")
 
-    # Test update
-    controller.update(repetitions=100)
+    controller.steering_shutdown()
+    root.destroy()
 
 if __name__ == "__main__":
     main()
