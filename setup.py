@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='logidrivepy',
-    version='0.1.3',
-    description='A Python library for interfacing with a Logitech steering wheel.',
+    version='0.2.0',
+    description='A Python module for interfacing with Logitech steering wheels.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/cengizozel/logidrivepy',
@@ -14,7 +14,7 @@ setup(
     include_package_data=True,
     package_data={'logidrivepy': ['dll/*.dll']},
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.8',
