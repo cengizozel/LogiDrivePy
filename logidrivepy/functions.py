@@ -251,23 +251,23 @@ class LogitechControllerFunctions:
     def get_state_engines(self, index):
         return self.LogiGetStateENGINES(index)
     
-    def get_device_path(self, index, string, number):
-        return self.LogiGetDevicePath(index, string, number)
+    def get_device_path(self, index, str, size):
+        return self.LogiGetDevicePath(index, str, size)
     
-    def get_friendly_product_name(self, index, string, number):
-        return self.LogiGetFriendlyProductName(index, string, number)
+    def get_friendly_product_name(self, index, str, size):
+        return self.LogiGetFriendlyProductName(index, str, size)
     
     def is_connected(self, index):
         return self.LogiIsConnected(index)
     
-    def is_device_connected(self, index, number):
-        return self.LogiIsDeviceConnected(index, number)
+    def is_device_connected(self, index, device_type):
+        return self.LogiIsDeviceConnected(index, device_type)
     
-    def is_manufacturer_connected(self, index, number):
-        return self.LogiIsManufacturerConnected(index, number)
+    def is_manufacturer_connected(self, index, manufacturer_name):
+        return self.LogiIsManufacturerConnected(index, manufacturer_name)
 
-    def is_model_connected(self, index, number):
-        return self.LogiIsModelConnected(index, number)
+    def is_model_connected(self, index, model_name):
+        return self.LogiIsModelConnected(index, model_name)
 
     def button_triggered(self, index, button_number):
         return self.LogiButtonTriggered(index, button_number)
@@ -278,11 +278,11 @@ class LogitechControllerFunctions:
     def button_is_pressed(self, index, button_number):
         return self.LogiButtonIsPressed(index, button_number)
 
-    def generate_non_linear_values(self, index, non_linear_values):
-        return self.LogiGenerateNonLinearValues(index, non_linear_values)
+    def generate_non_linear_values(self, index, non_lin_coeff):
+        return self.LogiGenerateNonLinearValues(index, non_lin_coeff)
 
-    def get_non_linear_value(self, index, value):
-        return self.LogiGetNonLinearValue(index, value)
+    def get_non_linear_value(self, index, input_value):
+        return self.LogiGetNonLinearValue(index, input_value)
 
     def has_force_feedback(self, index):
         return self.LogiHasForceFeedback(index)
@@ -290,50 +290,50 @@ class LogitechControllerFunctions:
     def is_playing(self, index, force_type):
         return self.LogiIsPlaying(index, force_type)
 
-    def play_spring_force(self, index, offset, saturation, coefficient):
-        return self.LogiPlaySpringForce(index, offset, saturation, coefficient)
+    def play_spring_force(self, index, offset_percentage, saturation_percentage, coefficient_percentage):
+        return self.LogiPlaySpringForce(index, offset_percentage, saturation_percentage, coefficient_percentage)
 
     def stop_spring_force(self, index):
         return self.LogiStopSpringForce(index)
 
-    def play_constant_force(self, index, magnitude):
-        return self.LogiPlayConstantForce(index, magnitude)
+    def play_constant_force(self, index, magnitude_percentage):
+        return self.LogiPlayConstantForce(index, magnitude_percentage)
 
     def stop_constant_force(self, index):
         return self.LogiStopConstantForce(index)
 
-    def play_damper_force(self, index, coefficient):
-        return self.LogiPlayDamperForce(index, coefficient)
+    def play_damper_force(self, index, coefficient_percentage):
+        return self.LogiPlayDamperForce(index, coefficient_percentage)
 
     def stop_damper_force(self, index):
         return self.LogiStopDamperForce(index)
 
-    def play_side_collision_force(self, index, magnitude):
-        return self.LogiPlaySideCollisionForce(index, magnitude)
+    def play_side_collision_force(self, index, magnitude_percentage):
+        return self.LogiPlaySideCollisionForce(index, magnitude_percentage)
 
-    def play_frontal_collision_force(self, index, magnitude):
-        return self.LogiPlayFrontalCollisionForce(index, magnitude)
+    def play_frontal_collision_force(self, index, magnitude_percentage):
+        return self.LogiPlayFrontalCollisionForce(index, magnitude_percentage)
 
-    def play_dirt_road_effect(self, index, magnitude):
-        return self.LogiPlayDirtRoadEffect(index, magnitude)
+    def play_dirt_road_effect(self, index, magnitude_percentage):
+        return self.LogiPlayDirtRoadEffect(index, magnitude_percentage)
 
     def stop_dirt_road_effect(self, index):
         return self.LogiStopDirtRoadEffect(index)
 
-    def play_bumpy_road_effect(self, index, magnitude):
-        return self.LogiPlayBumpyRoadEffect(index, magnitude)
+    def play_bumpy_road_effect(self, index, magnitude_percentage):
+        return self.LogiPlayBumpyRoadEffect(index, magnitude_percentage)
 
     def stop_bumpy_road_effect(self, index):
         return self.LogiStopBumpyRoadEffect(index)
 
-    def play_slippery_road_effect(self, index, magnitude):
-        return self.LogiPlaySlipperyRoadEffect(index, magnitude)
+    def play_slippery_road_effect(self, index, magnitude_percentage):
+        return self.LogiPlaySlipperyRoadEffect(index, magnitude_percentage)
 
     def stop_slippery_road_effect(self, index):
         return self.LogiStopSlipperyRoadEffect(index)
 
-    def play_surface_effect(self, index, type, magnitude, period):
-        return self.LogiPlaySurfaceEffect(index, type, magnitude, period)
+    def play_surface_effect(self, index, type, magnitude_percentage, period):
+        return self.LogiPlaySurfaceEffect(index, type, magnitude_percentage, period)
 
     def stop_surface_effect(self, index):
         return self.LogiStopSurfaceEffect(index)
@@ -344,29 +344,29 @@ class LogitechControllerFunctions:
     def stop_car_airborne(self, index):
         return self.LogiStopCarAirborne(index)
 
-    def play_softstop_force(self, index, usableRange):
-        return self.LogiPlaySoftstopForce(index, usableRange)
+    def play_softstop_force(self, index, usable_range_percentage):
+        return self.LogiPlaySoftstopForce(index, usable_range_percentage)
 
     def stop_softstop_force(self, index):
         return self.LogiStopSoftstopForce(index)
 
-    def set_preferred_controller_properties(self, properties_data):
-        return self.LogiSetPreferredControllerProperties(properties_data)
+    def set_preferred_controller_properties(self, properties):
+        return self.LogiSetPreferredControllerProperties(properties)
 
-    def get_current_controller_properties(self, index, properties_data_pointer):
-        return self.LogiGetCurrentControllerProperties(index, properties_data_pointer)
+    def get_current_controller_properties(self, index, properties):
+        return self.LogiGetCurrentControllerProperties(index, properties)
 
-    def get_shifter_mode(self, index, shifter_mode_pointer):
-        return self.LogiGetShifterMode(index, shifter_mode_pointer)
+    def get_shifter_mode(self, index):
+        return self.LogiGetShifterMode(index)
 
-    def get_operating_range(self, index, range_pointer):
-        return self.LogiGetOperatingRange(index, range_pointer)
+    def get_operating_range(self, index, range):
+        return self.LogiGetOperatingRange(index, range)
 
     def set_operating_range(self, index, range):
         return self.LogiSetOperatingRange(index, range)
 
-    def play_leds(self, index, currentRPM, rpmFirstLedTurnsOn, rpmRedLine):
-        return self.LogiPlayLeds(index, currentRPM, rpmFirstLedTurnsOn, rpmRedLine)
+    def play_leds(self, index, current_rpm, rpm_first_led_turns_on, rpm_red_line):
+        return self.LogiPlayLeds(index, current_rpm, rpm_first_led_turns_on, rpm_red_line)
 
     def steering_shutdown(self):
         # Destroy the GUI window if it exists
