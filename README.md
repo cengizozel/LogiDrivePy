@@ -94,8 +94,8 @@ This library uses the `ctypes` Python library to load and call functions from th
 
 This library also requires `Tkinter`, a Python binding to the Tk GUI toolkit. Tkinter is part of the standard Python library for Python 3 and should be installed by default with a standard Python installation.
 
-### License
+## License
 
 This project is licensed under the terms of the MIT license. For more details, see the `LICENSE.txt` file.
 
-Please note that this project is *not* a reverse engineering of the Logitech Gaming Steering Wheel SDK. Instead, this project aims to provide an interface to Logitech steering wheels in Python by utilizing the SDK's provided DLL file (LogitechSteeringWheelEnginesWrapper.dll) without decompiling, disassembling, or otherwise altering the SDK's components. This project is designed to extend the functionality of the SDK for Python developers while respecting and complying with the original End-User License Agreement of the SDK.
+Please note that this project is **not** a reverse engineering of the Logitech Gaming Steering Wheel SDK. Instead, this project aims to provide an interface to Logitech steering wheels in Python by utilizing the SDK's provided DLL file (LogitechSteeringWheelEnginesWrapper.dll) without decompiling, disassembling, or otherwise altering the SDK's components. This project is designed to extend the functionality of the SDK for Python developers while respecting and complying with the original End-User License Agreement of the SDK.
