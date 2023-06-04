@@ -21,7 +21,7 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ],
-    keywords='logitech, g920, driving, wheel, controller',
+    keywords='logitech, g920, driving, steering-wheel, controller',
     install_requires=[
     ],
 )
