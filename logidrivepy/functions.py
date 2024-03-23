@@ -18,6 +18,11 @@ class LogitechControllerFunctions:
         self.LogiSteeringInitialize.argtypes = [ctypes.c_bool]
         self.LogiSteeringInitialize.restype = ctypes.c_bool
 
+        # LogiSteeringInitializeWithWindow
+        self.LogiSteeringInitializeWithWindow = self.logi_dll.LogiSteeringInitializeWithWindow
+        self.LogiSteeringInitializeWithWindow.argtypes = [ctypes.c_bool, ctypes.c_long]
+        self.LogiSteeringInitializeWithWindow.restype = ctypes.c_bool
+
         # LogiUpdate
         self.LogiUpdate = self.logi_dll.LogiUpdate
         self.LogiUpdate.argtypes = []
@@ -262,6 +267,34 @@ class LogitechControllerFunctions:
             >>> steering_initialize(ignore_xinput_controllers=False)
         """
         return self.LogiSteeringInitialize(ignore_xinput_controllers)
+    
+    def steering_initialize_with_window(self, ignore_xinput_controllers=True, hwnd=None):
+        """
+        Initializes the steering system with a window handle if certain conditions are met.
+        In contrast to the steering_initialize function, this one allows reading wheel inputs even
+        when focused on some different, specific window like a Pygame window by providing the hwnd.
+
+        Args:
+            - ignore_xinput_controllers (bool, optional): If true, X-input controllers are ignored. Default is True.
+            - hwnd (long): The window handle.
+
+        Returns:
+            - bool: Returns True if:
+                * No other instance is running, and
+                * The window handle is found.
+            Otherwise, returns False.
+
+        Note:
+            - This is a part of the Logitech G Hub APIs. Make sure to install the necessary drivers and libraries.
+
+        Example using Pygame:
+            >>> hwnd = pygame.display.get_wm_info()["window"]
+            >>> steering_initialize_with_window(ignore_xinput_controllers=False, hwnd)
+        """
+        if hwnd is None:
+            raise Exception("Window handle was not provided.")
+        
+        return self.LogiSteeringInitializeWithWindow(ignore_xinput_controllers, hwnd)
     
     def logi_update(self):
         """
